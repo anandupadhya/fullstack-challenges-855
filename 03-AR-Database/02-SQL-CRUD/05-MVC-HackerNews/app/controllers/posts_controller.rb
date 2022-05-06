@@ -9,6 +9,10 @@ class PostsController
 
   def index
     # TODO: implement listing all posts
+    # fetch all the posts from the model (Post.all)
+    posts = Post.all
+    # pass that array to view
+    @view.list_all(posts)
   end
 
   def create

@@ -15,3 +15,18 @@ create_statement = "
 DB.execute(create_statement)
 
 # Write your test code here (and run `ruby test.rb` in your terminal to run it):
+
+# create a new post and save
+p crud_sucks = Post.new(title: "CRUD Sucks", url: "crudsucks.com")
+p crud_sucks.save
+p crud_sucks
+
+p post2 = Post.new(title: "Second Post", url: "someething.com")
+p post2.save
+post2.title = "Second Post (Updated)"
+post2.url = "something.com"
+p post2.save
+p post2.save
+p post2.save
+p post2.save
+p post2.save

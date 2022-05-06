@@ -9,7 +9,20 @@ class Post
     @title = attributes[:title]
   end
 
+  def self.find(id)
+    query = "SELECT * FROM posts WHERE id = ?"
+    DB.results_as_hash = true
+    result = DB.execute(query, id).first
+
+    return nil if result.nil?
+
+    result.transform_keys!(&:to_sym)
+    return Post.new(result)
+  end
+
   def destroy
     # TODO: destroy the current instance from the database
+    query = "DELETE FROM posts WHERE id = ?"
+    DB.execute(query, @id)
   end
 end
